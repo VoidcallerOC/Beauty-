@@ -7,7 +7,8 @@ export const site = {
 }
 
 export const navItems = [
-  { label: 'Services', href: '#services' },
-  { label: 'Our approach', href: '#approach' },
-  { label: 'Visit us', href: '#visit' },
+  { label: 'Services', href: '/services' },
+  { label: 'About', href: '/about' },
+  { label: 'Visit us', href: '/visit' },
+  { label: 'Contact', href: '/contact' },
 ]
