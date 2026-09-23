@@ -1,4 +1,4 @@
-import { ArrowUpRight, Sparkles } from 'lucide-react'
+import { ArrowUpRight, CalendarDays, MapPin, Phone, Sparkles } from 'lucide-react'
 import { Button } from './components/Button'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
@@ -6,46 +6,44 @@ import { Section } from './components/Section'
 import { site } from './lib/site'
 
 const services = [
-  { number: '01', title: 'Hair', copy: 'Cuts, color, and effortless styling that feels like you.', items: ['Signature cut', 'Dimensional color', 'Blowouts'] },
-  { number: '02', title: 'Skin', copy: 'Quiet, results-minded rituals for your best skin days.', items: ['Custom facial', 'Dermaplane glow', 'Back treatment'] },
-  { number: '03', title: 'Beauty', copy: 'The finishing touches for everyday ease and big moments.', items: ['Brow shaping', 'Lash lift', 'Event makeup'] },
+  { title: 'Hair', copy: 'Cuts, color, and styling shaped around your routine.' },
+  { title: 'Skin', copy: 'Focused facials and skin rituals for a fresh, rested glow.' },
+  { title: 'Beauty', copy: 'Brows, lashes, and makeup for everyday or an occasion.' },
 ]
 
 function App() {
   return (
     <div className="site-shell">
       <Header />
-
-      <main id="top">
-        <section className="hero section-pad">
-          <div className="hero-copy">
-            <p className="eyebrow">A softer kind of beauty studio <span aria-hidden="true">✳</span></p>
-            <h1>Come as you are.<br /><em>Leave feeling</em><br />like yourself.</h1>
-            <p className="hero-intro">Thoughtful hair, skin, and beauty services in a warm, collected space in the heart of Farmington, Connecticut.</p>
+      <main id="top" className="home">
+        <section className="home-hero section-pad">
+          <div className="home-hero-copy">
+            <p className="eyebrow">Juniper &amp; Co. Beauty Studio <span aria-hidden="true">✳</span></p>
+            <h1>Good hair days.<br /><em>Good skin days.</em><br />Good days.</h1>
+            <p className="home-hero-intro">A warm, straightforward beauty studio for hair, skin, and the finishing touches, right here in Farmington, Connecticut.</p>
             <div className="hero-actions"><Button href={site.phoneHref} icon="phone">Call to book</Button><a className="text-link" href="#services">Explore services <ArrowUpRight size={16} aria-hidden="true" /></a></div>
-            <div className="hero-note"><Sparkles size={16} aria-hidden="true" /><span>Independent studio · By appointment · {site.location}</span></div>
+            <div className="hero-location"><MapPin size={15} aria-hidden="true" /><span>Farmington, CT · By appointment</span></div>
           </div>
-          <div className="hero-art" role="img" aria-label="Abstract still life inspired by the beauty studio">
-            <div className="sun-disc" /><div className="arch-shape" /><div className="plant-stem stem-one" /><div className="plant-stem stem-two" /><div className="plant-leaf leaf-one" /><div className="plant-leaf leaf-two" /><div className="plant-leaf leaf-three" />
-            <div className="bottle bottle-one"><div className="bottle-cap" /><div className="bottle-label">JUNIPER<br /><small>no. 03</small></div></div>
-            <div className="bottle bottle-two"><div className="bottle-cap" /><div className="bottle-label">GLOW<br /><small>ritual oil</small></div></div>
-            <div className="art-caption"><span>01 / 04</span><span>Objects of ritual</span></div>
-          </div>
+          <figure className="hero-placeholder">
+            <div className="placeholder-art" role="img" aria-label="Placeholder for licensed Juniper and Co. beauty studio photography"><div className="placeholder-frame"><span className="placeholder-kicker">Hero photography slot</span><span className="placeholder-title">Licensed demo photo<br /><em>goes here.</em></span><span className="placeholder-note">/public/demo/</span></div><span className="placeholder-index">01 / 01</span></div>
+            <figcaption>Photography placeholder. Final licensed studio image to be added.</figcaption>
+          </figure>
         </section>
 
-        <section className="ticker" aria-label="Studio values"><div>Hair <span>✳</span> Skin <span>✳</span> Beauty <span>✳</span> Good energy <span>✳</span> Local love <span>✳</span></div></section>
-
-        <Section id="services" className="services" eyebrow="The menu" title="Beauty, but make it" titleEmphasis="personal." description="No one-size-fits-all packages here. We’ll talk through what you want, what you need, and create a visit around it.">
-          <div className="service-grid">{services.map((service) => <article className="service-card" key={service.number}><div className="service-top"><span>{service.number}</span><ArrowUpRight size={19} aria-hidden="true" /></div><h3>{service.title}</h3><p>{service.copy}</p><ul>{service.items.map((item) => <li key={item}>{item}</li>)}</ul><a href={site.phoneHref}>Call for details <ArrowUpRight size={15} aria-hidden="true" /></a></article>)}</div>
+        <Section id="services" className="services-preview" eyebrow="A considered menu" title="Start with what" titleEmphasis="you need.">
+          <div className="service-grid">{services.map((service, index) => <article className="service-card" key={service.title}><div className="service-top"><span>0{index + 1}</span><ArrowUpRight size={19} aria-hidden="true" /></div><h3>{service.title}</h3><p>{service.copy}</p><a href={site.phoneHref}>Call for details <ArrowUpRight size={15} aria-hidden="true" /></a></article>)}</div>
         </Section>
 
-        <section className="approach" id="approach"><div className="approach-image" role="img" aria-label="Abstract Juniper and Co. studio artwork"><div className="image-mark">J<span>&amp;</span>C</div><div className="image-label">The art of<br /><em>taking your time</em></div></div><div className="approach-copy"><p className="eyebrow">Our approach</p><h2>A little more <em>human.</em></h2><p>We believe beauty appointments should feel like a reset, not another thing on your calendar. Our studio is intentionally small, our work is considered, and your time here is entirely yours.</p><p>Come in for the hair, stay for the conversation. Leave with a little more ease than you arrived with.</p><a className="text-link" href={site.phoneHref}>Meet us over the phone <ArrowUpRight size={16} aria-hidden="true" /></a></div></section>
+        <section className="why-here section-pad" id="why-here">
+          <div className="why-here-mark" aria-hidden="true"><Sparkles size={25} /><span>J&amp;C</span></div>
+          <div className="why-here-copy"><p className="eyebrow">Why here</p><h2>Beauty that fits<br /><em>real life.</em></h2><p>Come for the service, stay for the ease. Juniper &amp; Co. is a small local studio built around personal attention, clear recommendations, and a visit that feels welcoming from the start.</p><p>No overcomplication. No hard sell. Just thoughtful work close to home.</p></div>
+          <div className="why-here-points"><div><strong>01</strong><span>Personal attention</span><p>A visit shaped around you, not a menu of fixed packages.</p></div><div><strong>02</strong><span>Straightforward service</span><p>Clear conversations and practical beauty advice.</p></div><div><strong>03</strong><span>Local and welcoming</span><p>Easy to find in Farmington, with time to settle in.</p></div></div>
+        </section>
 
-        <Section id="visit" className="visit" eyebrow="Find your way here" title="Make a little room" titleEmphasis="for yourself.">
-          <div className="visit-details"><div><span className="detail-label">Studio</span><p>{site.location}<br />By appointment only</p></div><div><span className="detail-label">Hours</span><p>Tuesday–Saturday<br />Hours vary by service</p></div><Button href={site.phoneHref} variant="secondary" icon="phone">{site.phone}</Button></div>
-        </Section>
+        <section className="visit-strip section-pad" id="visit"><div className="visit-strip-heading"><p className="eyebrow">Plan your visit</p><h2>Close to home.<br /><em>Easy to find.</em></h2><a className="text-link" href={site.phoneHref}>Call to book <ArrowUpRight size={16} aria-hidden="true" /></a></div><div className="visit-info"><div className="visit-detail"><MapPin size={18} aria-hidden="true" /><div><span>Location</span><p>Farmington, CT<br /><small>[COPY] Address coming soon</small></p></div></div><div className="visit-detail"><CalendarDays size={18} aria-hidden="true" /><div><span>Hours</span><p>Tuesday to Saturday<br /><small>[COPY] Hours vary by service</small></p></div></div><div className="visit-detail"><Phone size={18} aria-hidden="true" /><div><span>Call to book</span><p><a href={site.phoneHref}>{site.phone}</a><br /><small>Phone booking only for now</small></p></div></div></div><div className="map-placeholder" role="img" aria-label="Map placeholder for Juniper and Co. in Farmington, Connecticut"><MapPin size={25} aria-hidden="true" /><span>Farmington, CT</span><small>Map placeholder</small></div></section>
+
+        <section className="final-cta section-pad"><div><p className="eyebrow">Your next good day</p><h2>Ready when<br /><em>you are.</em></h2></div><div className="final-cta-copy"><p>Tell us what you have in mind and we’ll find the right place to start.</p><Button href={site.phoneHref} icon="phone">Call to book</Button></div></section>
       </main>
-
       <Footer />
     </div>
   )
